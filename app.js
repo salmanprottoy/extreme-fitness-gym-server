@@ -20,6 +20,7 @@ const client = new MongoClient(uri, {
 });
 client.connect((err) => {
   //const adminCollection = client.db("extremeFitnessGym").collection("admin");
+  console.log(err);
 });
 
 app.get("/", (req, res) => {
