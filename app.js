@@ -19,8 +19,27 @@ const client = new MongoClient(uri, {
   useUnifiedTopology: true,
 });
 client.connect((err) => {
-  //const adminCollection = client.db("extremeFitnessGym").collection("admin");
-  console.log(err);
+  const adminCollection = client.db("extremeFitnessGym").collection("admin");
+
+  const servicesCollection = client
+    .db("extremeFitnessGym")
+    .collection("services");
+
+  const reviewsCollection = client
+    .db("extremeFitnessGym")
+    .collection("reviews");
+
+  app.get("/services", (req, res) => {
+    servicesCollection.find().toArray((err, documents) => {
+      res.send(documents);
+    });
+  });
+
+  app.get("/reviews", (req, res) => {
+    reviewsCollection.find().toArray((err, documents) => {
+      res.send(documents);
+    });
+  });
 });
 
 app.get("/", (req, res) => {
