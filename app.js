@@ -29,6 +29,10 @@ client.connect((err) => {
     .db("extremeFitnessGym")
     .collection("reviews");
 
+  const trainersCollection = client
+    .db("extremeFitnessGym")
+    .collection("trainers");
+
   app.get("/services", (req, res) => {
     servicesCollection.find().toArray((err, documents) => {
       res.send(documents);
@@ -37,6 +41,12 @@ client.connect((err) => {
 
   app.get("/reviews", (req, res) => {
     reviewsCollection.find().toArray((err, documents) => {
+      res.send(documents);
+    });
+  });
+
+  app.get("/trainers", (req, res) => {
+    trainersCollection.find().toArray((err, documents) => {
       res.send(documents);
     });
   });
