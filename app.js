@@ -124,6 +124,13 @@ client.connect((err) => {
     });
   });
 
+  app.post("/isAdmin", (req, res) => {
+    const email = req.body.email;
+    adminCollection.find({ email: email }).toArray((err, admin) => {
+      res.send(admin.length > 0);
+    });
+  });
+
   app.get("/admin/:id", (req, res) => {
     var id = req.params.id;
     adminCollection.find({ _id: ObjectId(id) }).toArray((err, result) => {
