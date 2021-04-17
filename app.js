@@ -116,6 +116,14 @@ client.connect((err) => {
     });
   });
 
+  app.post("/addAdmin", (req, res) => {
+    const admin = req.body;
+    adminCollection.insertOne(admin).then((result) => {
+      console.log(result.insertedCount);
+      res.send(result.insertedCount > 0);
+    });
+  });
+
   app.get("/admin/:id", (req, res) => {
     var id = req.params.id;
     adminCollection.find({ _id: ObjectId(id) }).toArray((err, result) => {
