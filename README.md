@@ -1,25 +1,41 @@
-# Online Book Store 
+# Extreme Fitness GYM
 
-A node application build using react library that can be use as book selling perform.
+A node application build using react library that can be use as online GYM subscription place for a perticular GYM.
 
 ---
 ## Live site ⚡
 
-[Online Book Store ](https://online-book-store-e7a9c.web.app/)
+[ Extreme Fitness GYM ](https://extreme-fitness-gym-bd.web.app/)
 
 ## Features ✔
 
-- #### Can login
+- #### Can login using google
 
 
 - #### Can signup
 
 
-- #### Can see book
+- #### Can see GYM services
 
 
-- #### Can order book
+- #### Can see GYM trainers
 
+
+- #### Can Review Trainers
+
+
+- #### Can see GYM services
+
+
+- #### Can purchase GYM services
+
+
+- #### Admin can manage services
+
+
+- #### Admin can manage trainers
+
+
+- #### Admin can add other admin
 
 ##
-
