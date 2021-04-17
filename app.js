@@ -48,6 +48,14 @@ client.connect((err) => {
     });
   });
 
+  app.post("/addService", (req, res) => {
+    const service = req.body;
+    servicesCollection.insertOne(service).then((result) => {
+      console.log(result.insertedCount);
+      res.send(result.insertedCount > 0);
+    });
+  });
+
   app.get("/services/:id", (req, res) => {
     var id = req.params.id;
     servicesCollection.find({ _id: ObjectId(id) }).toArray((err, result) => {
@@ -119,6 +127,14 @@ client.connect((err) => {
   app.get("/reviews", (req, res) => {
     reviewsCollection.find().toArray((err, documents) => {
       res.send(documents);
+    });
+  });
+
+  app.post("/addReview", (req, res) => {
+    const review = req.body;
+    reviewsCollection.insertOne(review).then((result) => {
+      console.log(result.insertedCount);
+      res.send(result.insertedCount > 0);
     });
   });
 });
